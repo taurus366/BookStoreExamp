@@ -5,6 +5,7 @@ import {BooksComponent} from "./core/books/books.component";
 import {RegisterComponent} from "./core/register/register.component";
 import {LoginComponent} from "./core/login/login.component";
 import {ContactComponent} from "./core/contact/contact.component";
+import {AuthActivate} from "./core/guard/auth.activate";
 
 const routes: Routes = [
   {
@@ -18,7 +19,12 @@ const routes: Routes = [
   },
   {
     path: 'books',
-    component: BooksComponent
+    component: BooksComponent,
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/'
+    }
   },
   {
     path: 'register',

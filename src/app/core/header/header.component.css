@@ -8,6 +8,10 @@
 /*  padding: 0;*/
 /*}*/
 
+a.active {
+  color: black;
+}
+
 header {
   background: #5f2c82;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
