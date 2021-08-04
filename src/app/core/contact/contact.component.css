@@ -1,0 +1,25 @@
+.contact {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img > img {
+  margin-top: 25px;
+  width: 250px;
+}
+.img {
+  margin: 0;
+}
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.contact-text > p , .work-time > p{
+  margin-bottom: 0;
+  color: red;
+}

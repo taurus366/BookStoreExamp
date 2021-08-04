@@ -1,0 +1,77 @@
+.books {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 150px;
+}
+
+.book {
+  width: 600px;
+  height: 200px;
+  display: flex;
+  border: 2px solid black;
+  border-top: 2px solid orange;
+  border-bottom-color: grey;
+  border-right-color: grey;
+  border-left-color: grey;
+  padding: 0 10px 0 10px;
+  margin-top: 20px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.book-item-img {
+  border: 1px solid black;
+  padding: 2px;
+  margin-right: 7px;
+  box-shadow: 1px 1px 3px #999999;
+}
+
+.book-item-img > img{
+  width: 200px;
+}
+
+.book-item-title {
+  color: #991A01;
+}
+.book-item-author {
+  color: #7AB9E9;
+}
+
+.book-item-title > p , .book-item-author > p {
+  margin: 0;
+}
+
+.btn-more {
+  position: relative;
+
+
+}
+.btn-more > a {
+  background: url("src/assets/images/css-forms-buttons-order-list.png") 0px 0px no-repeat #1172cc;
+  cursor: pointer;
+  position: absolute;
+  left: 200px;
+  bottom: 12px;
+  border: none;
+  width: 62px;
+  height: 23px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 0px 18px 0px 8px;
+  line-height: 24px;
+
+  /*
+  border: 1px solid black;
+  border-radius: 30%;
+  padding: 5px 5px 5px 5px; */
+}
+
+.btn-more > a:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

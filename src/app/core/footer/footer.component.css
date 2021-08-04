@@ -1,0 +1,53 @@
+footer {
+
+  position: fixed;
+
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  color: white;
+
+  background: #5f2c82;
+  background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+
+.footer-container {
+  display: flex;
+
+  justify-content: space-evenly;
+  height: 140px;
+
+}
+.footer-text-working > p {
+  margin: 5px 0 0 0;
+}
+
+.footer-copy-right {
+  display: flex;
+  justify-content: center;
+}
+.footer-copy-right > p {
+
+  align-self: center;
+  text-align: center;
+}
+
+.footer-text-working {
+  width: 450px;
+  margin-left: 50px;
+
+}
+.footer-text-working > h4 {
+
+  padding-left: 6px;
+  border-left: 2px solid black;
+  margin-top: 10px;
+}
+
+h4 , .footer-text-working {
+  margin: 0;
+}
