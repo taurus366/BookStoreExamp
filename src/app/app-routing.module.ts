@@ -6,6 +6,7 @@ import {RegisterComponent} from "./core/register/register.component";
 import {LoginComponent} from "./core/login/login.component";
 import {ContactComponent} from "./core/contact/contact.component";
 import {AuthActivate} from "./core/guard/auth.activate";
+import {BookComponent} from "./core/book/book.component";
 
 const routes: Routes = [
   {
@@ -17,14 +18,38 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
+  // {
+  //   path: 'books',
+  //   component: BooksComponent,
+  //   canActivate: [AuthActivate],
+  //   data: {
+  //     authenticationRequired: false,
+  //     authenticationFailureRedirectUrl: '/'
+  //   }
+  // },
   {
     path: 'books',
-    component: BooksComponent,
-    canActivate: [AuthActivate],
-    data: {
-      authenticationRequired: true,
-      authenticationFailureRedirectUrl: '/'
-    }
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: BooksComponent,
+        canActivate: [AuthActivate],
+        data: {
+          authenticationRequired: false,
+          authenticationFailureRedirectUrl: '/'
+        }
+      },
+      {
+        path: ':bookId',
+        component: BookComponent,
+        canActivate: [AuthActivate],
+        data: {
+          authenticationRequired: false,
+          authenticationFailureRedirectUrl: '/'
+        }
+      }
+    ]
   },
   {
     path: 'register',

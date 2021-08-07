@@ -35,9 +35,9 @@ nav {
 .user {
   display: none;
 }
-/* .guest {
-   /* display: block; */
-/* } */
+.guest {
+  /*display: none;*/
+}
 
 .nav-ul > li {
   margin: 0 20px 0 0;

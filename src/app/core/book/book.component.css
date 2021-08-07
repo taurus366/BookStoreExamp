@@ -1,0 +1,72 @@
+.book-info {
+  margin-top: 50px;
+  display: flex;
+}
+
+.book-img {
+  width: 300px;
+}
+.book-img > img {
+  width: 100%;
+  object-fit: cover;
+}
+.book-img {
+  padding-right: 50px;
+  border-right: 3px solid black;
+  height: 500px;
+}
+
+.book-information-aside {
+  margin-left: 50px;
+  /* display: flex; */
+
+}
+.book-title {
+  color: #991A01;
+}
+.book-author {
+  color: #7AB9E9;
+}
+
+.btn-more {
+  position: relative;
+
+
+}
+.btn-buy > a {
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  background: url("src/assets/images/css-forms-buttons-order-list.png") 0px 0px no-repeat #1172cc;
+  cursor: pointer;
+  position: absolute;
+  /* left: 200px; */
+  /* bottom: 12px; */
+  border: none;
+  width: 62px;
+  height: 23px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 0px 18px 4px 8px;
+  line-height: 24px;
+
+  /*
+  border: 1px solid black;
+  border-radius: 30%;
+  padding: 5px 5px 5px 5px; */
+}
+
+.btn-buy > a:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.is-available > p {
+  color: royalblue;
+}
+
+.is-available > p > span {
+  color: green;
+}

@@ -7,6 +7,8 @@ import {CoreModule} from "./core/core.module";
 import {AuthActivate} from "./core/guard/auth.activate";
 import {isPlatformBrowser, isPlatformServer} from "@angular/common";
 import {LocalStorage} from "./core/injection-tokens";
+import {HttpClientModule} from "@angular/common/http";
+import {ContentService} from "./content.service";
 
 @NgModule({
   declarations: [
@@ -15,52 +17,10 @@ import {LocalStorage} from "./core/injection-tokens";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        CoreModule
+        CoreModule,
+      HttpClientModule
     ],
-  providers: [{
-    provide: LocalStorage,
-    useFactory: (platformId: Object) => {
-      if (isPlatformBrowser(platformId)) {
-        return window.localStorage;
-      }
-      if (isPlatformServer(platformId)) {
-        return class implements Storage {
-          length = 0;
-          private data = {};
-
-          clear(): void {
-            this.data = {};
-          }
-
-          getItem(key: string): string | null {
-            // @ts-ignore
-            return this.data[key];
-          }
-
-          key(index: number): string | null {
-            // @ts-ignore
-            return undefined;
-          }
-
-          removeItem(key: string): void {
-            // @ts-ignore
-            const {[key]: removedItem, ...others} = this.data;
-            this.data = others;
-          }
-
-          setItem(key: string, value: string): void {
-            // @ts-ignore
-            this.data[key] = value;
-          }
-
-        }
-      }
-      throw Error('NOT IMPLEMENTED');
-
-    },
-    deps: [PLATFORM_ID]
-    // useValue: window.localStorage
-  },AuthActivate],
+  providers: [ContentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
