@@ -11,11 +11,17 @@
 /* display: none; */
 /* } */
 
+*,*:before,*:after {
+  box-sizing: border-box;
+}
+
 .register-container {
   margin-top: 30px;
   margin-bottom: 150px;
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 .errors {
@@ -64,4 +70,7 @@ label {
   margin-top: 15px;
   padding: 10px 10px 10px 10px;
   margin-left: 55px;
+}
+img {
+  width: 115%;
 }
