@@ -13,6 +13,9 @@ import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {LocalStorage} from "./injection-tokens";
 import {AuthActivate} from "./guard/auth.activate";
 import { BookComponent } from './book/book.component';
+import {FormsModule} from "@angular/forms";
+import {AppModule} from "../app.module";
+import { SameValueDirective } from './same-value.directive';
 
 
 
@@ -25,7 +28,8 @@ import { BookComponent } from './book/book.component';
         RegisterComponent,
         LoginComponent,
         ContactComponent,
-        BookComponent
+        BookComponent,
+        SameValueDirective,
     ],
   exports: [
     HeaderComponent,
@@ -33,7 +37,8 @@ import { BookComponent } from './book/book.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers: [{
     provide: LocalStorage,

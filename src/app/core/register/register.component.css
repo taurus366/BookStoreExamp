@@ -1,0 +1,67 @@
+/* .register-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+} */
+
+/* .guest {
+    /* display: none; */
+/* } */
+/* .user { */
+/* display: none; */
+/* } */
+
+.register-container {
+  margin-top: 30px;
+  margin-bottom: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.errors {
+  color: red;
+}
+
+.form-group > label {
+  margin-left: 44px;
+
+}
+
+.form-group {
+  margin-top: 20px;
+}
+
+select , input{
+  margin-top: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+.form-group.repeatPassword > label {
+  margin-left: 14px;
+
+}
+
+.form-group.firstName > label {
+  margin-left: 41px;
+
+}
+
+.form-group.secondName > label, .form-group.phoneNumber > label {
+  margin-left: 19px;
+
+}
+
+.form-group.gender > select {
+  padding: 5px 55px 5px 64px;
+}
+
+label {
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.login-btn {
+  margin-top: 15px;
+  padding: 10px 10px 10px 10px;
+  margin-left: 55px;
+}
