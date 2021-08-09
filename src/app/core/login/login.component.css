@@ -1,0 +1,44 @@
+.login-container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 150px;
+}
+
+.input-email {
+  width: 50%;
+}
+
+form :nth-child(1) {
+  margin-bottom: 10px;
+
+}
+
+form {
+
+  text-align: center;
+  border-top: 10px solid #a53911;
+}
+
+.form-group {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px;
+  font-size: 20px;
+}
+
+img {
+  width: 115%;
+}
+
+.form-group > label {
+  font-size: 20px;
+}
+
+.form-group > input {
+  padding: 5px;
+}
