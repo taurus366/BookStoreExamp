@@ -32,12 +32,12 @@ nav {
   display: flex;
   list-style: none;
 }
-.user {
-  display: none;
-}
-.guest {
-  /*display: none;*/
-}
+/*.user {*/
+/*  display: none;*/
+/*}*/
+/*.guest {*/
+/*  !*display: none;*!*/
+/*}*/
 
 .nav-ul > li {
   margin: 0 20px 0 0;

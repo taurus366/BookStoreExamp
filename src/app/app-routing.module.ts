@@ -36,7 +36,7 @@ const routes: Routes = [
         component: BooksComponent,
         canActivate: [AuthActivate],
         data: {
-          authenticationRequired: false,
+          authenticationRequired: true,
           authenticationFailureRedirectUrl: '/'
         }
       },
@@ -45,7 +45,7 @@ const routes: Routes = [
         component: BookComponent,
         canActivate: [AuthActivate],
         data: {
-          authenticationRequired: false,
+          authenticationRequired: true,
           authenticationFailureRedirectUrl: '/'
         }
       }

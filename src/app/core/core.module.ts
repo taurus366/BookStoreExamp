@@ -13,9 +13,10 @@ import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {LocalStorage} from "./injection-tokens";
 import {AuthActivate} from "./guard/auth.activate";
 import { BookComponent } from './book/book.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppModule} from "../app.module";
 import { SameValueDirective } from './same-value.directive';
+import {SharedModule} from "../shared/shared.module";
 
 
 
@@ -38,7 +39,9 @@ import { SameValueDirective } from './same-value.directive';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: LocalStorage,

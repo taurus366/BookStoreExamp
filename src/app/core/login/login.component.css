@@ -42,3 +42,7 @@ img {
 .form-group > input {
   padding: 5px;
 }
+.errors {
+  font-size: 20px;
+  color: red;
+}

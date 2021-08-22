@@ -4,7 +4,7 @@
     <p class="store-name-p">Book Store</p>
   </div>
   <nav>
-    <ul class="nav-ul guest">
+    <ul class="nav-ul guest" *ngIf="!isLogged">
       <li><a routerLink="home" routerLinkActive="active">Home</a></li>
       <li><a routerLink="books" routerLinkActive="active">Books</a></li>
       <li><a routerLink="register" routerLinkActive="active">Register</a></li>
@@ -12,11 +12,11 @@
       <li><a routerLink="contact" routerLinkActive="active">Contact Us</a></li>
     </ul>
 
-    <ul class="nav-ul user">
-      <li><a routerLink="home" routerLinkActive="active">Home</a></li>
+    <ul class="nav-ul user" *ngIf="isLogged">
+<!--      <li><a routerLink="home" routerLinkActive="active">Home</a></li>-->
       <li><a routerLink="books" routerLinkActive="active">Books</a></li>
       <li><a routerLink="profile" routerLinkActive="active">Profile</a></li>
-      <li><a routerLinkActive="active" >Logout</a></li>
+      <li><a  (click)="logout()" routerLink="home">Logout</a></li>
       <li><a routerLink="contact" routerLinkActive="active">Contact Us</a></li>
     </ul>
   </nav>

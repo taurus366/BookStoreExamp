@@ -1,25 +1,32 @@
+<!--{{form.invalid}}-->
 <div class="register-container" xmlns="http://www.w3.org/1999/html">
   <article class="img">
     <img src="/assets/images/istockphoto-866383490-612x612.jpg" alt="">
+
   </article>
-  <form #form="ngForm" (ngSubmit)="registerHandler(form)" xmlns:disabled="http://www.w3.org/1999/xhtml">
+  <form #form="ngForm"  class="register" action="" method="post" (ngSubmit)="register(form)" xmlns:disabled="http://www.w3.org/1999/xhtml">
     <div class="form-group">
       <label for="email"><span><i aria-hidden="true" class="fa fa-envelope"></i></span> Email:</label>
       <br>
-      <input type="text" name="email" id="email" #emailInput="ngModel" ngModel required email>
+      <input type="text" name="email" id="email" #emailInput="ngModel" ngModel required  [appCustomValidator]="emailValidator">
       <ul *ngIf="emailInput.invalid && emailInput.touched" class="errors">
         <li *ngIf="emailInput.errors?.required">Email is required!</li>
-        <li *ngIf="emailInput.errors?.email">Email is invalid!</li>
+<!--        <li *ngIf="emailInput.errors?.email">Email is invalid!</li>-->
+        <li *ngIf="emailInput.errors?.invalidEmail">Email is invalid!</li>
+      </ul>
+      <ul class="errors from-server" *ngIf="registerError.length !== 0">
+        <li >{{registerError}}</li>
       </ul>
     </div>
 
     <div class="form-group">
       <label for="password"><span><i aria-hidden="true" class="fa fa-lock"></i></span> password:</label>
       <br>
-      <input type="password" name="password" id="password" #passwordInput="ngModel" ngModel required [minlength]="8">
+      <input type="password" name="password" id="password" #passwordInput="ngModel" ngModel required  [minlength]="8">
       <ul class="errors" *ngIf="passwordInput.invalid && passwordInput.touched">
         <li *ngIf="passwordInput.errors?.required">Password is required!</li>
         <li *ngIf="passwordInput.errors?.minlength">Password must be 8 or more characters!</li>
+        <li *ngIf="passwordInput.errors?.firstPassValue">Password and Repeat Password are not matching!</li>
       </ul>
     </div>
 
@@ -29,14 +36,14 @@
       <input type="password" name="repeatPassword" id="repeatPassword" #repeatPassword="ngModel" ngModel required appSameValue="password">
       <ul class="errors" *ngIf="repeatPassword.invalid && repeatPassword.touched">
         <li *ngIf="repeatPassword.errors?.required">Repeat Password is required!</li>
-        <li *ngIf="repeatPassword.errors?.firstPassValue">Password and Repeat Password are not matching!</li>
+        <li *ngIf="repeatPassword.errors?.firstPassValue  ">Password and Repeat Password are not matching!</li>
       </ul>
     </div>
 
     <div class="form-group firstName">
-      <label for="first-name"><span><i aria-hidden="true" class="fa fa-user"></i></span> first name:</label>
+      <label for="firstName"><span><i aria-hidden="true" class="fa fa-user"></i></span> first name:</label>
       <br>
-      <input type="text" name="first-name" id="first-name" #firstName="ngModel" ngModel required [minlength]="3">
+      <input type="text" name="firstName" id="firstName" #firstName="ngModel" ngModel required [minlength]="3">
       <ul class="errors" *ngIf="firstName.invalid && firstName.touched">
         <li *ngIf="firstName.errors?.required">First name is required!</li>
         <li *ngIf="firstName.errors?.minlength">First name have to more than 3 characters!</li>
@@ -44,9 +51,9 @@
     </div>
 
     <div class="form-group secondName">
-      <label for="second-name"><span><i aria-hidden="true" class="fa fa-user"></i></span> second name:</label>
+      <label for="secondName"><span><i aria-hidden="true" class="fa fa-user"></i></span> second name:</label>
       <br>
-      <input type="text" name="second-name" id="second-name" #secondName="ngModel" ngModel required [minlength]="3">
+      <input type="text" name="secondName" id="secondName" #secondName="ngModel" ngModel required [minlength]="3">
       <ul class="errors" *ngIf="secondName.invalid && secondName.touched">
         <li *ngIf="secondName.errors?.required">Second name is required!</li>
         <li *ngIf="secondName.errors?.minlength">Second name have to more than 3 characters!</li>
@@ -63,9 +70,9 @@
     </div>
 
     <div class="form-group phoneNumber">
-      <label for="phone-number"><span><i class="fa fa-phone" aria-hidden="true"></i></span> Phone number:</label>
+      <label for="phoneNumber"><span><i class="fa fa-phone" aria-hidden="true"></i></span> Phone number:</label>
       <br>
-      <input type="text" name="phone-number" id="phone-number" #phoneNumber="ngModel" ngModel required [minlength]="8">
+      <input type="text" name="phoneNumber" id="phoneNumber" #phoneNumber="ngModel" ngModel required [minlength]="8">
       <ul class="errors" *ngIf="phoneNumber.invalid && phoneNumber.touched">
         <li *ngIf="phoneNumber.errors?.required">Phone number is required!</li>
         <li *ngIf="phoneNumber.errors?.minlength">Phone number must be more than 8 numbers!</li>
@@ -75,15 +82,17 @@
     <div class="form-group gender">
       <label for="gender"><span><i class="fas fa-venus-mars" aria-hidden="true"></i></span> gender:</label>
       <br>
-      <select name="gender" id="gender">
-        <option value="female">Female</option>
-        <option value="Male">Male</option>
+      <select name="gender" value="Male" id="gender" #gender="ngModel" ngModel [(ngModel)]='nrSelect'>
+        <option value="Female" >Female</option>
+        <option value="Male" >Male</option>
       </select>
     </div>
 
     <ng-template #disabledBtn> <button disabled class="login-btn">Register</button></ng-template>
     <ng-template #enabledBtn> <button class="login-btn">Register</button></ng-template>
     <ng-container *ngTemplateOutlet="form.invalid ? disabledBtn : enabledBtn" > </ng-container>
+
   </form>
+
 
 </div>

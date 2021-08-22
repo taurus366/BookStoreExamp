@@ -78,3 +78,8 @@ img {
 form {
   border-top: 10px solid #a53911;
 }
+
+.errors.from-server > li{
+  /*text-decoration: none;*/
+  /*list-style: none;*/
+}
