@@ -3,21 +3,36 @@
   <div class="store-name">
     <p class="store-name-p">Book Store</p>
   </div>
+
+
+<!--  <span class="notification" >{{messageToShow}}</span>-->
+
   <nav>
-    <ul class="nav-ul guest" *ngIf="!isLogged">
-      <li><a routerLink="home" routerLinkActive="active">Home</a></li>
+    <ul class="nav-ul guest" *ngIf="!isLogged && !isAdmin">
+      <li><a routerLink="home"  routerLinkActive="active">Home</a></li>
       <li><a routerLink="books" routerLinkActive="active">Books</a></li>
       <li><a routerLink="register" routerLinkActive="active">Register</a></li>
       <li><a routerLink="login" routerLinkActive="active">Login</a></li>
       <li><a routerLink="contact" routerLinkActive="active">Contact Us</a></li>
     </ul>
 
-    <ul class="nav-ul user" *ngIf="isLogged">
-<!--      <li><a routerLink="home" routerLinkActive="active">Home</a></li>-->
+    <ul class="nav-ul admin" *ngIf="isAdmin">
+<!--      <li><a routerLink="home"  routerLinkActive="active">Home</a></li>-->
+<!--      <li><a routerLink="books" routerLinkActive="active">Books</a></li>-->
+<!--      <li><a routerLink="register" routerLinkActive="active">Register</a></li>-->
+<!--      <li><a routerLink="login" routerLinkActive="active">Login</a></li>-->
+      <li><a routerLink="orders" routerLinkActive="active">Orders</a></li>
+      <li><a (click)="logout()" routerLink="home">Logout</a></li>
+    </ul>
+
+    <ul class="nav-ul user" *ngIf="isLogged && !isAdmin" >
+      <li><a routerLink="shoppingCart" routerLinkActive="active">Shopping Cart</a></li>
       <li><a routerLink="books" routerLinkActive="active">Books</a></li>
       <li><a routerLink="profile" routerLinkActive="active">Profile</a></li>
       <li><a  (click)="logout()" routerLink="home">Logout</a></li>
       <li><a routerLink="contact" routerLinkActive="active">Contact Us</a></li>
     </ul>
+<!--    <span class="show-info">TESTasdasdasdasdasadasdasdasdadasas</span>-->
   </nav>
+
 </header>

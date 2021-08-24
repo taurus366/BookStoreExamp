@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ContentService} from "../../content.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {IBook} from "../../shared/interfaces/IBook";
+import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-book',
@@ -12,7 +13,7 @@ export class BookComponent implements OnInit {
 
    book: IBook | undefined;
 
-  constructor(private contentService: ContentService , private activateRoute: ActivatedRoute) {
+  constructor(private contentService: ContentService , private activateRoute: ActivatedRoute, private userService:UserService,private route:Router) {
   this.fetchBookById();
   }
 
@@ -25,4 +26,20 @@ export class BookComponent implements OnInit {
     this.contentService.loadBookById(id).subscribe(book => this.book = book);
   }
 
+  get isLogged(): boolean {
+   return  this.userService.isLogged;
+  }
+
+
+  addToCart(id: number) {
+   let authToken  = '';
+    this.userService.addToCart({id,authToken}).subscribe({
+      next: value => {
+        this.route.navigate(['/books']);
+      },
+      error: err => {
+        console.log(err.error);
+      }
+    })
+  }
 }

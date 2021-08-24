@@ -17,6 +17,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppModule} from "../app.module";
 import { SameValueDirective } from './same-value.directive';
 import {SharedModule} from "../shared/shared.module";
+import { ProfileComponent } from './profile/profile.component';
+import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -31,6 +34,9 @@ import {SharedModule} from "../shared/shared.module";
         ContactComponent,
         BookComponent,
         SameValueDirective,
+        ProfileComponent,
+        ShoppingCardComponent,
+        OrderComponent,
     ],
   exports: [
     HeaderComponent,

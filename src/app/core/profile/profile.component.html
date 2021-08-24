@@ -1,0 +1,38 @@
+<div class="profile-container">
+  <section class="user-info">
+    <section class="user-picture">
+      <img class="user-img" src="./assets/images/{{user!.gender.toLowerCase()}}.png" alt="image">
+    </section>
+    <section class="user-information">
+      <p class="user fansName"><i class="fas fa-user"></i> {{user!.firstName  + " " + user!.secondName}}</p>
+      <p class="user emailAddress"><i class="fas fa-envelope"></i> {{user!.email}}</p>
+      <p class="user phoneNumber"><i class="fas fa-phone"></i> {{user!.phoneNumber}}</p>
+      <p class="user phoneNumber"><i class="fas fa-address-book"></i> {{user!.address}}</p>
+    </section>
+  </section>
+
+  <section class="user-change-information">
+    <button class="info-btn" (click)="infoUpdateMode = !infoUpdateMode">Change Information?</button>
+
+    <form #form="ngForm" ngForm class="updateValue" action="" method="post" *ngIf="infoUpdateMode">
+      <div class="form-group address">
+        <label for="address"><span><i aria-hidden="true" class="fa fa-address-card"></i></span> Address:</label>
+        <br>
+        <input type="text" name="address" id="address" #address="ngModel" ngModel required>
+
+      </div>
+
+      <div class="form-group phoneNumber">
+        <label for="phoneNumber"><span><i class="fa fa-phone" aria-hidden="true"></i></span> Phone number:</label>
+        <br>
+        <input type="text" name="phoneNumber" id="phoneNumber" #phoneNumber="ngModel" ngModel required [minlength]="8">
+
+      </div>
+      <ng-template #disabledBtn> <button class="save-btn" disabled (click)=" updateUserInfo(form)" >Save</button></ng-template>
+      <ng-template #enabledBtn> <button class="save-btn" (click)=" updateUserInfo(form)" >Save</button></ng-template>
+      <ng-container *ngTemplateOutlet="form.invalid ? disabledBtn : enabledBtn" > </ng-container>
+
+      </form>
+  </section>
+
+</div>

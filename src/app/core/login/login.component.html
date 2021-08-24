@@ -4,11 +4,11 @@
     <img src="/assets/images/login.jpg" alt="image">
   </article>
 
-  <form>
+  <form #form="ngForm"  class="register" action="" method="post" (ngSubmit)="login(form)">
     <div class="form-group">
       <label for="email"><span><i aria-hidden="true" class="fa fa-envelope"></i></span> Email:</label>
       <br>
-      <input type="email" name="email" id="email">
+      <input type="email" name="email" id="email" ngModel>
       <ul class="errors">
         <!-- <li *ngIf="passwordInput.errors?.required">Password is required!</li>
         <li *ngIf="passwordInput.errors?.minlength">Password must be 8 or more characters!</li> -->
@@ -18,7 +18,7 @@
     <div class="form-group">
       <label for="password"><span><i aria-hidden="true" class="fa fa-lock"></i></span> Password:</label>
       <br>
-      <input type="password" name="password" id="password">
+      <input type="password" name="password" id="password" ngModel>
       <ul class="errors">
         <!-- <li *ngIf="passwordInput.errors?.required">Password is required!</li>
         <li *ngIf="passwordInput.errors?.minlength">Password must be 8 or more characters!</li> -->
@@ -27,7 +27,7 @@
     <button>Login</button>
     <div class="errors">
       <ul>
-        <li>Password or Email are invalid!</li>
+        <li *ngIf="loginError.length > 0">Password or Email are invalid!</li>
       </ul>
     </div>
   </form>

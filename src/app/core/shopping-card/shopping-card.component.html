@@ -1,0 +1,55 @@
+<div class="shopping-cart">
+  <!-- Title -->
+  <div class="title">
+    Shopping Cart
+  </div>
+
+  <div class="item" *ngFor="let cart of carts">
+    <div class="buttons">
+      <span id="delete-btn" class="delete-btn" (click)="deleteCommand(cart.id)"><i class="fas fa-times"></i></span>
+      <!--      <span id="like-btn" class="like-btn"></span>-->
+    </div>
+    <div class="image">
+      <img class="shop" src="{{cart.book.imgUrl}}" alt=""/>
+    </div>
+    <div class="description">
+
+      <span id="food-name"></span>
+
+    </div>
+    <div class="quantity">
+      <button id="plus-btn" class="plus-btn" (click)="quantityUpBtn(cart.id)" type="button" name="button">
+        <img class="shop" src="/assets/images/plus.svg" alt=""/>
+      </button>
+      <input type="text" name="name" value='{{cart.bookCount}}'>
+
+      <ng-template #enabledBtn>
+        <button class="minus-btn" (click)="quantityDownBtn(cart.id)" type="button" name="button" >
+          <img *ngIf="cart.bookCount > 1" src="/assets/images/minus.svg" alt=""/>
+        </button>
+      </ng-template>
+
+      <ng-template #disabledBtn>
+        <button class="minus-btn" type="button" disabled name="button" (click)="quantityDownBtn(cart.id)">
+          <img *ngIf="cart.bookCount > 1" src="/assets/images/minus.svg" alt=""/>
+        </button>
+      </ng-template>
+
+      <ng-container *ngTemplateOutlet="cart.bookCount <= 1 ? disabledBtn : enabledBtn"></ng-container>
+
+    </div>
+
+    <div class="price">Price:</div>
+    <div class="total-price"> {{cart.book.price * cart.bookCount}}</div>
+    <div class="price right"> lev</div>
+    <p><textarea readonly id="food-comment" style="resize: none">{{cart.book.title}} -title / {{cart.book.author}}
+      -author / {{cart.book.issuedDate}} -issuedDate / {{cart.book.page}} -pages</textarea></p>
+    <div class="product-id"></div>
+    <div class="cart-id"></div>
+  </div>
+</div>
+
+<div class="btn2">
+  <button class="orderBtn" *ngIf="carts !== undefined" (click)="makeOrder()" type="button">Make Order</button>
+  <div *ngIf="carts === undefined">Shopping Cart is EMPTY !</div>
+</div>

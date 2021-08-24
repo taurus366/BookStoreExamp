@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);
+
 body {
   margin: 0;
   padding: 0;

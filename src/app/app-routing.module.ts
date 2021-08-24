@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./core/home/home.component";
 import {BooksComponent} from "./core/books/books.component";
 import {RegisterComponent} from "./core/register/register.component";
@@ -7,6 +7,9 @@ import {LoginComponent} from "./core/login/login.component";
 import {ContactComponent} from "./core/contact/contact.component";
 import {AuthActivate} from "./core/guard/auth.activate";
 import {BookComponent} from "./core/book/book.component";
+import {ProfileComponent} from "./core/profile/profile.component";
+import {ShoppingCardComponent} from "./core/shopping-card/shopping-card.component";
+import {OrderComponent} from "./core/order/order.component";
 
 const routes: Routes = [
   {
@@ -17,6 +20,14 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'shoppingCart',
+    component: ShoppingCardComponent
+  },
+  {
+    path: 'orders',
+    component: OrderComponent
   },
   // {
   //   path: 'books',
@@ -36,7 +47,7 @@ const routes: Routes = [
         component: BooksComponent,
         canActivate: [AuthActivate],
         data: {
-          authenticationRequired: true,
+          authenticationRequired: false,
           authenticationFailureRedirectUrl: '/'
         }
       },
@@ -45,7 +56,7 @@ const routes: Routes = [
         component: BookComponent,
         canActivate: [AuthActivate],
         data: {
-          authenticationRequired: true,
+          authenticationRequired: false,
           authenticationFailureRedirectUrl: '/'
         }
       }
@@ -62,6 +73,15 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/'
+    }
   }
 ];
 
@@ -69,4 +89,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -63,7 +63,7 @@ export class RegisterComponent {
     }
     this.userService.register(form.value).subscribe({
       next:(user) => {
-  this.router.navigate(['/']);
+  this.router.navigate(['/books']);
     console.log(user.session.authToken)
         this.userService.populateLocalStorage(user);
       },

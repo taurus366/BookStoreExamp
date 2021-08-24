@@ -1,40 +1,43 @@
 <div class="book-container" *ngIf="book">
-               <section class="book-info">
-           <article class="book-img">
-               <img src="{{book?.imgUrl}}" alt="">
-           </article>
-               <section class="book-information-aside">
+  <section class="book-info">
+    <article class="book-img">
+      <img src="{{book?.imgUrl}}" alt="">
+    </article>
+    <section class="book-information-aside">
 
-                  <article class="book-info-text">
-                   <p class="book-title">{{book?.title}}</p>
-                   <p class="book-author">{{book?.author}}</p>
-                  </article>
+      <article class="book-info-text">
+        <p class="book-title">{{book?.title}}</p>
+        <p class="book-author">{{book?.author}}</p>
+      </article>
 
-                  <article class="book-price">
-                   <p>Price: <span>{{book?.price}}</span>euro</p>
-               </article>
+      <article class="book-price">
+        <p>Price: <span>{{book?.price}}</span>euro</p>
+      </article>
 
-               <article class="is-available">
+      <article class="is-available">
 
-                   <p>
-                       Available:
-                       <span class="answer">Yes, in stock at the supplier</span>
-                   </p>
-               </article>
-               <article class="book-more-info">
-                   <p class="issued">issued: <span>{{book?.issuedDate}}</span></p>
-                   <p class="publish-house"><span>{{book?.publishHouse}}</span> Publishing House</p>
-                   <p class="pages">Pages: <span>{{book?.page}}</span></p>
-               </article>
-
-                   <article class="btn-buy">
-                       <a href="/books">Buy</a>
-                       </article>
+        <p>
+          Available:
+          <span class="answer">Yes, in stock at the supplier</span>
+        </p>
+      </article>
+      <article class="book-more-info">
+        <p class="issued">issued: <span>{{book?.issuedDate}}</span></p>
+        <p class="publish-house"><span>{{book?.publishHouse}}</span> Publishing House</p>
+        <p class="pages">Pages: <span>{{book?.page}}</span></p>
+      </article>
 
 
-               </section>
+      <article class="btn-buy">
+
+        <a *ngIf="isLogged" (click)="addToCart(book.id)" >Buy</a>
+        <p *ngIf="!isLogged" class="logBuyBtn">Please log in System to buy!</p>
+      </article>
 
 
-               </section>
+    </section>
 
-           </div>
+
+  </section>
+
+</div>

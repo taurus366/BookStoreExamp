@@ -1,0 +1,48 @@
+.profile-container {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 200px;
+}
+.user-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.user-img {
+  margin-top: 25px;
+  width: fit-content;
+  width: 250px;
+}
+
+.img {
+  margin: 0;
+}
+
+.user {
+  font-size: 30px;
+}
+
+.info-btn {
+  font-size: 25px;
+  color: aquamarine;
+  background: black;
+}
+
+.user-change-information {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  margin-top: 20px;
+}
+
+.save-btn {
+  margin-top: 5px;
+}
