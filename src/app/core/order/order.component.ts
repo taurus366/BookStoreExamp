@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AdminService} from "../../admin.service";
 import {IOrder} from "../../shared/interfaces/IOrder";
 import {IView} from "../../shared/interfaces/IView";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-order',
@@ -13,7 +14,7 @@ export class OrderComponent implements OnInit {
   orders: IOrder[] | undefined;
   order: Array<IView> = [];
 
-  constructor(private adminService:AdminService) {
+  constructor(private adminService:AdminService, private route:Router) {
    this.fetchOrders();
   }
 
@@ -28,7 +29,6 @@ export class OrderComponent implements OnInit {
   async finish() {
 
     for (const [key, value] of Object.entries(this.orders!)){
-      // console.log(key , value);
       let data = {};
       // @ts-ignore
       data['fullName'] = value[0].fullName;
@@ -41,40 +41,44 @@ export class OrderComponent implements OnInit {
       // @ts-ignore
       data['orders'] = value;
 
-      // for (const userElement of value.User) {
-      //     console.log(userElement.phoneNumber)
-      // }
-
       let totalPrice = 0;
+      let emailAddress = '';
 
       // @ts-ignore
       for (const order1 of data['orders']) {
         let price = order1.book.price;
         let bookCount = order1.bookCount;
         totalPrice += price * bookCount;
+        emailAddress = order1.user.email;
       }
-
+      // @ts-ignore
+      data['emailAddress'] = emailAddress;
       // @ts-ignore
       data['totalPrice'] = totalPrice;
 
       // @ts-ignore
-      // for (const item of value) {
-      //
-      // }
-
-      // @ts-ignore
       this.order.push(data);
-
-
-
-    // this.order.push()
+      // console.log(this.order)
     }
-     console.log(this.order)
-    // console.log(this.order)
-
-    // console.log(Object.keys(this.orders!))
-    // console.log(Object.values(this.orders!))
-   // Object.entries(this.orders!)
+     // console.log(this.orders)
    }
 
+  acceptOrder(email: string) {
+    this.adminService.acceptOrder(email).subscribe({
+      next: value => {
+        alert(value);
+        let currentUrl = this.route.url;
+        this.route.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+          this.route.navigate([currentUrl]);
+        });
+      },
+      error: err => {
+        console.log(err.error);
+      }
+    });
+  }
+
+  // deleteOrder() {
+  //
+  // }
 }

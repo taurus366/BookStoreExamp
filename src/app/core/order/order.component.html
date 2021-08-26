@@ -41,7 +41,7 @@
       </div>
       <div class="cell">
 
-        <textarea id="comment" readonly style="resize: none" >{{item.book.page}}:pages, {{item.book.publishHouse}}: publish House</textarea>
+        <textarea id="comment" readonly style="resize: none" >{{"pages: " + item.book.page}}, {{"publish House: " + item.book.publishHouse}}</textarea>
       </div>
       <div class="cell">
        {{item.book.price}} BGN
@@ -58,12 +58,12 @@
       <div class="cell">
       </div>
       <div class="cell" id="total-price-cell">
-        <span id="total-price">{{user.totalPrice.toFixed(2)}} :Total BGN</span>
+        <span id="total-price">{{"Total: "+ user.totalPrice.toFixed(2) + " BGN"}} </span>
       </div>
     </div>
     <div class="btn-confirm" id=${data.username}>
-      <button id="confirm-btn">Accept order</button>
-      <button id="delete-btn">Delete order</button>
+      <button id="confirm-btn" (click)="acceptOrder(user.emailAddress)">Accept order</button>
+<!--      <button id="delete-btn" (click)="deleteOrder()">Delete order</button>-->
     </div>
   </div>
 

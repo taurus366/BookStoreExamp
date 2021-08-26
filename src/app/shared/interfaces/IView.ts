@@ -5,6 +5,7 @@ export interface IView {
   address: string,
   orderDate: string,
   totalPrice: number,
+  emailAddress: string,
   orders: [
     {
       "address": string,
