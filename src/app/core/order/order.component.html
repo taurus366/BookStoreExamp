@@ -1,1 +1,71 @@
-<p>order works!</p>
+<div class="order-container">
+
+  <div class="table" *ngFor="let user of order">
+    <div class="row header">
+      <div class="cell" >
+        Name: <p>{{user.fullName}}</p>
+      </div>
+      <div class="cell">
+        Phone number: <p>{{user.phoneNumber}}</p>
+      </div>
+      <div class="cell">
+        Address:<p>{{user.address}}</p>
+      </div>
+      <div class="cell">
+        Order date: <p>{{user.orderDate}}</p>
+      </div>
+    </div>
+    <div class="row random">
+      <div class="cell">
+        Name:
+      </div>
+      <div class="cell">
+        Quantity:
+      </div>
+      <div class="cell">
+        Book info:
+      </div>
+      <div class="cell">
+        Price:
+      </div>
+    </div>
+
+
+
+    <div class="row" *ngFor="let item of user.orders">
+      <div class="cell" >
+        {{item.book.title}}
+      </div>
+      <div class="cell">
+        {{item.bookCount}}
+      </div>
+      <div class="cell">
+
+        <textarea id="comment" readonly style="resize: none" >{{item.book.page}}:pages, {{item.book.publishHouse}}: publish House</textarea>
+      </div>
+      <div class="cell">
+       {{item.book.price}} BGN
+      </div>
+
+
+
+    </div>
+    <div class="row">
+      <div class="cell">
+      </div>
+      <div class="cell">
+      </div>
+      <div class="cell">
+      </div>
+      <div class="cell" id="total-price-cell">
+        <span id="total-price">{{user.totalPrice.toFixed(2)}} :Total BGN</span>
+      </div>
+    </div>
+    <div class="btn-confirm" id=${data.username}>
+      <button id="confirm-btn">Accept order</button>
+      <button id="delete-btn">Delete order</button>
+    </div>
+  </div>
+
+
+</div>

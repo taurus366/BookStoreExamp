@@ -92,6 +92,6 @@ import { OrderComponent } from './order/order.component';
     },
     deps: [PLATFORM_ID]
     // useValue: window.localStorage
-  },AuthActivate,ContentService]
+  },AuthActivate,ContentService,HeaderComponent]
 })
 export class CoreModule { }

@@ -23,7 +23,7 @@ export class ContentService {
   }
 
   loadBooks() {
-    return this.http.get<IBook[]>(`${corsProxy + environment.apiUrl}/books`);
+    return this.http.get<IBook[]>(`${corsProxy + environment.apiUrl}/books`).toPromise();
   }
 
   loadBookById(id : string) {

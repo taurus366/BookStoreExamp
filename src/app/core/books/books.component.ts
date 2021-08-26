@@ -20,9 +20,10 @@ export class BooksComponent implements OnInit {
   }
 
 
-  fetchBooks():void {
+  async fetchBooks() {
     this.books = undefined;
-    this.contentService.loadBooks().subscribe(themes => this.books = themes);
+    await this.contentService.loadBooks().then( themes => this.books = themes);
+    console.log(this.books)
   }
 
 }

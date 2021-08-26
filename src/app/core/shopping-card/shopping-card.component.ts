@@ -3,6 +3,7 @@ import {UserService} from "../user.service";
 import {ICart} from "../../shared/interfaces/ICart";
 import {Router} from "@angular/router";
 import {HeaderComponent} from "../header/header.component";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-shopping-card',
@@ -40,13 +41,14 @@ export class ShoppingCardComponent implements OnInit {
     })
   }
 
-  quantityDownBtn(id: number) {
+  quantityDownBtn(id: number) : any{
     this.userService.quantityDownBtn(id).subscribe({
       next: value => {
         let currentUrl = this.route.url;
         this.route.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.route.navigate([currentUrl]);
         });
+        return true;
       },
       error: err => {
         alert(err.error);
@@ -54,13 +56,14 @@ export class ShoppingCardComponent implements OnInit {
     });
   }
 
-  quantityUpBtn(id: number) {
+  quantityUpBtn(id: number){
     this.userService.quantityUpBtn(id).subscribe({
       next: value => {
         let currentUrl = this.route.url;
         this.route.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.route.navigate([currentUrl]);
         });
+        return true;
       },
       error: err => {
         alert(err.error);
@@ -85,4 +88,7 @@ export class ShoppingCardComponent implements OnInit {
       }
     })
   }
+
+
+
 }

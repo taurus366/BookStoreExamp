@@ -4,7 +4,7 @@
     Shopping Cart
   </div>
 
-  <div class="item" *ngFor="let cart of carts">
+  <div class="item" *ngFor="let cart of carts"  >
     <div class="buttons">
       <span id="delete-btn" class="delete-btn" (click)="deleteCommand(cart.id)"><i class="fas fa-times"></i></span>
       <!--      <span id="like-btn" class="like-btn"></span>-->
@@ -18,10 +18,10 @@
 
     </div>
     <div class="quantity">
-      <button id="plus-btn" class="plus-btn" (click)="quantityUpBtn(cart.id)" type="button" name="button">
+      <button id="plus-btn" class="plus-btn" (click)="quantityUpBtn(cart.id)"  type="button" name="button">
         <img class="shop" src="/assets/images/plus.svg" alt=""/>
       </button>
-      <input type="text" name="name" value='{{cart.bookCount}}'>
+      <input type="text" name="name" value='{{cart.bookCount}}' >
 
       <ng-template #enabledBtn>
         <button class="minus-btn" (click)="quantityDownBtn(cart.id)" type="button" name="button" >
