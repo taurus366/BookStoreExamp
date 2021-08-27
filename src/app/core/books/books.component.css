@@ -31,7 +31,8 @@
 }
 
 .book-item-img > img{
-  width: 200px;
+  /*width: 200px;*/
+  width: 110px;
 }
 
 .book-item-title {

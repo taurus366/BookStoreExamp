@@ -35,10 +35,11 @@ export class BookComponent implements OnInit {
    let authToken  = '';
     this.userService.addToCart({id,authToken}).subscribe({
       next: value => {
+        alert(value);
         this.route.navigate(['/books']);
       },
       error: err => {
-        console.log(err.error);
+        alert(err.error)
       }
     })
   }

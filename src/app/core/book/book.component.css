@@ -1,7 +1,9 @@
 .book-info {
   margin-top: 50px;
   display: flex;
+  margin-bottom: 200px;
 }
+
 
 .book-img {
   width: 300px;
