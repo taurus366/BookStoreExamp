@@ -1,5 +1,7 @@
 <div class="order-container">
 
+  <div  class="no-orders" *ngIf="order.length === 0">NO ORDERS TO ACCEPT!</div>
+
   <div class="table" *ngFor="let user of order">
     <div class="row header">
       <div class="cell" >
@@ -44,7 +46,7 @@
         <textarea id="comment" readonly style="resize: none" >{{"pages: " + item.book.page}}, {{"publish House: " + item.book.publishHouse}}</textarea>
       </div>
       <div class="cell">
-       {{item.book.price}} BGN
+       {{item.book.price}} EUR
       </div>
 
 
@@ -58,7 +60,7 @@
       <div class="cell">
       </div>
       <div class="cell" id="total-price-cell">
-        <span id="total-price">{{"Total: "+ user.totalPrice.toFixed(2) + " BGN"}} </span>
+        <span id="total-price">{{"Total: "+ user.totalPrice.toFixed(2) + " EUR"}} </span>
       </div>
     </div>
     <div class="btn-confirm" id=${data.username}>

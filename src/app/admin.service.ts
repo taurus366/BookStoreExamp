@@ -23,5 +23,15 @@ export class AdminService {
     return  this.http.post(`${corsProxy + environment.apiUrl}/order/delete`,{authToken: this.userService.user?.session.authToken,emailAddress: email});
   }
 
+  addBook(data: {title: string; author: string; publishHouse: string; imgUrl: string; page: string; price: string}) {
+    // @ts-ignore
+    data['authToken'] = this.userService.user?.session.authToken;
+    return this.http.post(`${corsProxy + environment.apiUrl}/books/add`,data);
+  }
+
+  removeBookByID(id: number) {
+   return  this.http.post(`${corsProxy + environment.apiUrl}/books/${id}`,{authToken:this.userService.user?.session.authToken});
+  }
+
 
 }

@@ -138,3 +138,12 @@
 .order-container {
   margin-bottom: 180px;
 }
+.no-orders {
+margin-top: 20px;
+}
+
+.order-container {
+  display: flex;
+  justify-content: center;
+}
+

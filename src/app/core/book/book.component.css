@@ -77,3 +77,8 @@
   font-size: 50px;
   color: red;
 }
+
+.btn-buy.admin > a{
+  background: url("src/assets/images/css-forms-buttons-order-list.png") 14px 1px no-repeat #1172cc;
+  width: 76px;
+}

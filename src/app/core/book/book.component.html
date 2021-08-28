@@ -28,11 +28,16 @@
       </article>
 
 
-      <article class="btn-buy">
+<!--      <article class="btn-buy">-->
 
-        <a *ngIf="isLogged" (click)="addToCart(book.id)" >Buy</a>
-        <p *ngIf="!isLogged" class="logBuyBtn">Please log in System to buy!</p>
-      </article>
+<!--        <a *ngIf="isLogged && !isAdmin" (click)="addToCart(book.id)" >Buy</a>-->
+<!--        <a *ngIf="isLogged && isAdmin" (click)="removeBook(book.id)" >Remove</a>-->
+<!--        <p *ngIf="!isLogged" class="logBuyBtn">Please log in System to buy!</p>-->
+<!--      </article>-->
+      <ng-template #admin><article class="btn-buy admin"><a (click)="removeBook(book.id)" >Remove</a></article> </ng-template>
+      <ng-template #client><article class="btn-buy client"><a (click)="addToCart(book.id)" >Buy</a></article> </ng-template>
+      <ng-template #guest><article class="btn-buy admin">  <p *ngIf="!isLogged" class="logBuyBtn">Please log in System to buy!</p></article> </ng-template>
+      <ng-container *ngTemplateOutlet="isLogged ? isAdmin ? admin : client :guest"></ng-container>
 
 
     </section>

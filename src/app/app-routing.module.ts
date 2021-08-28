@@ -10,6 +10,7 @@ import {BookComponent} from "./core/book/book.component";
 import {ProfileComponent} from "./core/profile/profile.component";
 import {ShoppingCardComponent} from "./core/shopping-card/shopping-card.component";
 import {OrderComponent} from "./core/order/order.component";
+import {NewBookComponent} from "./core/new-book/new-book.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,15 @@ const routes: Routes = [
   {
     path: 'orders',
     component: OrderComponent
+  },
+  {
+    path: 'addBook',
+    component: NewBookComponent,
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/'
+    }
   },
   // {
   //   path: 'books',

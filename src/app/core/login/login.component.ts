@@ -15,31 +15,31 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService,private route: Router) {
   }
 
-  login(form: NgForm): void {
+   login(form: NgForm) {
 
     if (form.invalid) {
       return;
     }
     this.loginError = '';
-      this.userService.login(form.value).subscribe({
-        next:(user) => {
-          if (user.role !== 'ADMIN'){
-            this.route.navigate(['/books']);
-          }
+     this.userService.login(form.value).subscribe({
+      next: (user) => {
+        if (user.role === 'ADMIN') {
           this.route.navigate(['/orders']);
-          // console.log(user);
+        } else {
+          this.route.navigate(['/books']);
 
-          this.userService.populateLocalStorage(user);
-        },
-        error: (err) => {
-          console.log(err.error)
-          this.loginError = err.error;
-
-          setTimeout(() =>{
-           this.loginError = '';
-          },7000)
         }
-      })
+        this.userService.populateLocalStorage(user);
+      },
+      error: (err) => {
+        console.log(err.error)
+        this.loginError = err.error;
+
+        setTimeout(() => {
+          this.loginError = '';
+        }, 7000)
+      }
+    })
   }
 
 

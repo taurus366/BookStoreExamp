@@ -11,6 +11,7 @@ import {ContentService} from "../../content.service";
 export class BooksComponent implements OnInit {
 
   books: IBook[] | undefined;
+  isLoaded : boolean = false;
 
   constructor(private contentService: ContentService) {
     this.fetchBooks();
@@ -22,7 +23,9 @@ export class BooksComponent implements OnInit {
 
   async fetchBooks() {
     this.books = undefined;
+
     await this.contentService.loadBooks().then( themes => this.books = themes);
+    this.isLoaded = true;
     // console.log(this.books)
   }
 

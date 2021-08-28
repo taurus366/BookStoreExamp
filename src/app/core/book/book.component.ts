@@ -3,6 +3,7 @@ import {ContentService} from "../../content.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {IBook} from "../../shared/interfaces/IBook";
 import {UserService} from "../user.service";
+import {AdminService} from "../../admin.service";
 
 @Component({
   selector: 'app-book',
@@ -13,7 +14,7 @@ export class BookComponent implements OnInit {
 
    book: IBook | undefined;
 
-  constructor(private contentService: ContentService , private activateRoute: ActivatedRoute, private userService:UserService,private route:Router) {
+  constructor(private adminService: AdminService, private contentService: ContentService , private activateRoute: ActivatedRoute, private userService:UserService,private route:Router) {
   this.fetchBookById();
   }
 
@@ -42,5 +43,21 @@ export class BookComponent implements OnInit {
         alert(err.error)
       }
     })
+  }
+
+  get isAdmin(){
+   return  this.userService.user?.role === 'ADMIN';
+  }
+
+  removeBook(id: number) {
+    this.adminService.removeBookByID(id).subscribe({
+      next: value => {
+        alert(value);
+      this.route.navigate(['/books'])
+      },
+      error: err => {
+        alert(err.error);
+      }
+    });
   }
 }

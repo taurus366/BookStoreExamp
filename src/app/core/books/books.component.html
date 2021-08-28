@@ -1,5 +1,7 @@
 <div class="books-container">
+
   <section class="books" >
+    <div *ngIf="!isLoaded" class="loader"></div>
     <div  class="book" *ngFor="let book of books">
       <section class="book-view">
         <article class="book-item-img">

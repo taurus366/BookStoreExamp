@@ -46,6 +46,7 @@ export class OrderComponent implements OnInit {
 
       // @ts-ignore
       for (const order1 of data['orders']) {
+        console.log(order1)
         let price = order1.book.price;
         let bookCount = order1.bookCount;
         totalPrice += price * bookCount;
@@ -66,7 +67,7 @@ export class OrderComponent implements OnInit {
   acceptOrder(email: string) {
     this.adminService.acceptOrder(email).subscribe({
       next: value => {
-        alert(value);
+        alert('Order is accepted!');
         let currentUrl = this.route.url;
         this.route.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.route.navigate([currentUrl]);

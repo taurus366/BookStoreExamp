@@ -20,6 +20,7 @@ import {SharedModule} from "../shared/shared.module";
 import { ProfileComponent } from './profile/profile.component';
 import { ShoppingCardComponent } from './shopping-card/shopping-card.component';
 import { OrderComponent } from './order/order.component';
+import { NewBookComponent } from './new-book/new-book.component';
 
 
 
@@ -37,6 +38,7 @@ import { OrderComponent } from './order/order.component';
         ProfileComponent,
         ShoppingCardComponent,
         OrderComponent,
+        NewBookComponent,
     ],
   exports: [
     HeaderComponent,

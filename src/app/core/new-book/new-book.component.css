@@ -1,0 +1,30 @@
+.addBook-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 150px;
+}
+
+form {
+  margin-top: 100px;
+}
+
+label {
+  font-size: 20px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+ul > li {
+  color: red;
+}
+
+.add-btn {
+  padding: 10px;
+
+}
